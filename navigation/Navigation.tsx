@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import tw from 'twrnc';
 import ShopScreen from '../screens/ShopScreen';
 import ContactScreen from '../screens/ContactScreen';
+import SearchScreen from '../screens/SearchScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -45,6 +46,16 @@ export default function Navigation() {
             ),
           }}
           component={ContactScreen}
+        />
+        <Tab.Screen
+          name="search"
+          options={{
+            tabBarLabel: 'Search',
+            tabBarIcon: ({color}) => (
+              <Icon name="search" color={color} size={26} />
+            ),
+          }}
+          component={SearchScreen}
         />
       </Tab.Navigator>
     </NavigationContainer>
