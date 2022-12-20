@@ -22,7 +22,7 @@ export default function Navigation() {
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({color}) => (
-              <Icon name="home" color={color} size={26} />
+              <Icon name="home" color={color} size={23} />
             ),
           }}
           component={HomeScreen}
@@ -32,7 +32,7 @@ export default function Navigation() {
           options={{
             tabBarLabel: 'Shop',
             tabBarIcon: ({color}) => (
-              <Icon name="shopping-cart" color={color} size={26} />
+              <Icon name="shopping-cart" color={color} size={23} />
             ),
           }}
           component={ShopScreen}
@@ -42,7 +42,7 @@ export default function Navigation() {
           options={{
             tabBarLabel: 'Contact',
             tabBarIcon: ({color}) => (
-              <Icon name="phone" color={color} size={26} />
+              <Icon name="phone" color={color} size={23} />
             ),
           }}
           component={ContactScreen}
@@ -52,7 +52,7 @@ export default function Navigation() {
           options={{
             tabBarLabel: 'Search',
             tabBarIcon: ({color}) => (
-              <Icon name="search" color={color} size={26} />
+              <Icon name="search" color={color} size={23} />
             ),
           }}
           component={SearchScreen}

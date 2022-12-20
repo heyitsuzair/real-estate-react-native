@@ -23,7 +23,7 @@ const ContactCards = () => {
             <Text
               adjustsFontSizeToFit
               style={[
-                tw`text-md ${pressed ? 'text-red-500' : 'text-gray-500'}`,
+                tw`${pressed ? 'text-red-500' : 'text-gray-500'}`,
                 styles.textMedium,
               ]}>
               uzairdevil354123@gmail.com
@@ -45,7 +45,7 @@ const ContactCards = () => {
             <Text
               adjustsFontSizeToFit
               style={[
-                tw`text-md ${pressed ? 'text-red-500' : 'text-gray-500'}`,
+                tw`${pressed ? 'text-red-500' : 'text-gray-500'}`,
                 styles.textMedium,
               ]}>
               03104864150
@@ -63,7 +63,7 @@ const ContactCards = () => {
         </Text>
         <Text
           adjustsFontSizeToFit
-          style={[tw`text-md text-gray-500`, styles.textMedium]}>
+          style={[tw`text-gray-500`, styles.textMedium]}>
           Lahore, Pakistan
         </Text>
       </View>
