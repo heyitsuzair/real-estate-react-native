@@ -4,7 +4,11 @@ import {Text} from 'react-native-paper';
 import tw from 'twrnc';
 
 const TextSemiLarge = ({text}: {text: string}) => {
-  return <Text style={[tw`text-2xl`, styles.text]}>{text}</Text>;
+  return (
+    <Text adjustsFontSizeToFit style={[tw`text-3xl`, styles.text]}>
+      {text}
+    </Text>
+  );
 };
 
 const styles = StyleSheet.create({

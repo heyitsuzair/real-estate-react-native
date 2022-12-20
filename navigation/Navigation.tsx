@@ -16,7 +16,7 @@ export default function Navigation() {
       <Tab.Navigator
         initialRouteName="home"
         activeColor={'red'}
-        barStyle={tw`bg-white`}>
+        barStyle={tw`bg-white border-t-2 border-red-500`}>
         <Tab.Screen
           name="home"
           options={{
