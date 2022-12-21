@@ -17,7 +17,7 @@ const PropertiesInfinite = ({
             fetchNextData();
           }
         }}
-        onEndReachedThreshold={0.3}
+        onEndReachedThreshold={1}
         style={tw`p-5`}
         showsVerticalScrollIndicator={false}
         renderItem={(property: any) => (

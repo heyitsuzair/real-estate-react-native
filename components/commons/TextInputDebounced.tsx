@@ -13,7 +13,7 @@ const TextInputDebounced = ({placeholder, onChangeText, value}: PropTypes) => {
   return (
     <View style={tw`bg-white p-1.5 border-b border-red-500`}>
       <DelayInput
-        delayTimeout={2000}
+        delayTimeout={1000}
         placeholder={placeholder}
         onChangeText={onChangeText}
         style={styles.input}

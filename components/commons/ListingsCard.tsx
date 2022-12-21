@@ -1,8 +1,9 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, Pressable} from 'react-native';
 import React from 'react';
 import tw from 'twrnc';
 import {ActivityIndicator, Button} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
+import {useNavigation} from '@react-navigation/native';
 
 const ListingsCard = ({
   property,
@@ -11,7 +12,11 @@ const ListingsCard = ({
   isLoadingOnEnd,
   hasNextPage,
 }: any) => {
+  const navigation = useNavigation();
   const color = () => {
+    /**
+     * Generate Random Colors For Avatar
+     */
     const randomColor = Math.floor(Math.random() * 16777215)
       .toString(16)
       .padStart(6, '0');
@@ -37,7 +42,12 @@ const ListingsCard = ({
   });
 
   return (
-    <>
+    <Pressable
+      onPress={() =>
+        navigation.navigate('product', {
+          id: property._id,
+        })
+      }>
       <View style={tw`bg-white rounded-xl mb-10`}>
         <Image
           source={{uri: property.listing_media[0]}}
@@ -98,9 +108,9 @@ const ListingsCard = ({
           </View>
         </View>
       </View>
-      <View style={tw`mb-6 -mt-6`}>
+      <View style={tw`mb-10 -mt-6`}>
         {index + 1 === totalDocs && isLoadingOnEnd && (
-          <ActivityIndicator style={tw`mb-4`} color="red" size={35} />
+          <ActivityIndicator style={tw`my-3`} color="red" size={35} />
         )}
         {index + 1 === totalDocs && !hasNextPage && (
           <View style={tw`flex flex-row justify-center mb-7 mt-3 items-center`}>
@@ -119,7 +129,7 @@ const ListingsCard = ({
           </View>
         )}
       </View>
-    </>
+    </Pressable>
   );
 };
 

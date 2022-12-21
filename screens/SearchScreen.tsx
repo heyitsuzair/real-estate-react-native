@@ -22,7 +22,7 @@ const SearchScreen = () => {
   /**
    * State For On End Reach Loading
    */
-  const [isLoadingOnEnd, setisLoadingOnEnd] = useState<boolean>(true);
+  const [isLoadingOnEnd, setisLoadingOnEnd] = useState<boolean>(false);
   /**
    * State To Store Found Properties
    */
