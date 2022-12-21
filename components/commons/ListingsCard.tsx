@@ -42,10 +42,10 @@ const ListingsCard = ({property}: any) => {
           id: property._id,
         })
       }>
-      <View style={tw`bg-white rounded-xl mb-7`}>
+      <View style={tw`bg-white rounded-xl`}>
         <Image
           source={{uri: property.listing_media[0]}}
-          style={tw`w-full h-60 mx-auto rounded-t-xl`}
+          style={tw`w-full h-44 mx-auto rounded-t-xl`}
           resizeMode="cover"
         />
         <Text

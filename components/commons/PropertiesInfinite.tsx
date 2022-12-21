@@ -4,6 +4,8 @@ import ListingsCard from './ListingsCard';
 import tw from 'twrnc';
 import {ActivityIndicator} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
+import Footer from './Footer';
+import PreFooter from './PreFooter';
 
 const PropertiesInfinite = ({fetchNextData, properties}: any) => {
   return (
@@ -22,7 +24,6 @@ const PropertiesInfinite = ({fetchNextData, properties}: any) => {
           </Text>
         </View>
       }
-      style={tw`p-5`}
       showsVerticalScrollIndicator={false}
       ListFooterComponent={
         properties.hasNextPage ? (
@@ -32,26 +33,32 @@ const PropertiesInfinite = ({fetchNextData, properties}: any) => {
         ) : (
           properties.docs &&
           properties.docs.length > 0 && (
-            <View
-              style={tw`flex flex-row justify-center mt-2 mb-12 items-center`}>
+            <>
               <View
-                style={tw`mx-2 -ml-2 border-2 border-red-500 p-2 rounded-full`}>
-                <Icon name="check" color="red" size={25} />
+                style={tw`flex flex-row justify-center mt-2 mb-12 items-center`}>
+                <View
+                  style={tw`mx-2 -ml-2 border-2 border-red-500 p-2 rounded-full`}>
+                  <Icon name="check" color="red" size={25} />
+                </View>
+                <Text
+                  adjustsFontSizeToFit
+                  style={[
+                    tw`text-center text-lg text-black mt-1`,
+                    styles.poppinsSemiBold,
+                  ]}>
+                  You're All Caught Up
+                </Text>
               </View>
-              <Text
-                adjustsFontSizeToFit
-                style={[
-                  tw`text-center text-lg text-black mt-1`,
-                  styles.poppinsSemiBold,
-                ]}>
-                You're All Caught Up
-              </Text>
-            </View>
+              <PreFooter />
+              <Footer />
+            </>
           )
         )
       }
       renderItem={(property: any) => (
-        <ListingsCard key={property.item._id} property={property.item} />
+        <View style={tw`p-5`}>
+          <ListingsCard key={property.item._id} property={property.item} />
+        </View>
       )}
     />
   );

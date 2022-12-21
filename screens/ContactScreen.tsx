@@ -4,10 +4,14 @@ import tw from 'twrnc';
 import Breadcrumb from '../components/commons/Breadcrumb';
 import ContactCards from '../components/contact/ContactCards';
 import Map from '../components/commons/Map';
+import PreFooter from '../components/commons/PreFooter';
+import Footer from '../components/commons/Footer';
 
 const ContactScreen = () => {
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={tw`flex-1`}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={tw`flex-1 bg-white`}>
       <Breadcrumb text="Contact Us" />
 
       <View style={tw`bg-white flex flex-col items-center justify-center`}>
@@ -21,6 +25,8 @@ const ContactScreen = () => {
           />
         </View>
       </View>
+      <PreFooter />
+      <Footer />
     </ScrollView>
   );
 };

@@ -21,6 +21,7 @@ const Tabs = () => {
       screenOptions={{
         tabBarActiveTintColor: 'red',
         tabBarHideOnKeyboard: true,
+        tabBarStyle: tw`border-t`,
       }}>
       <Tab.Screen
         name="home"
