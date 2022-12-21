@@ -1,17 +1,19 @@
 import * as React from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import DelayInput from 'react-native-debounce-input';
 import tw from 'twrnc';
 
 interface PropTypes {
   placeholder: string;
-  onChangeText?: (obj: any) => void;
+  onChangeText: (text: string) => Promise<void>;
   value: string;
 }
 
-const TextInputSimple = ({placeholder, onChangeText, value}: PropTypes) => {
+const TextInputDebounced = ({placeholder, onChangeText, value}: PropTypes) => {
   return (
     <View style={tw`bg-white p-1.5 border-b border-red-500`}>
-      <TextInput
+      <DelayInput
+        delayTimeout={2000}
         placeholder={placeholder}
         onChangeText={onChangeText}
         style={styles.input}
@@ -27,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TextInputSimple;
+export default TextInputDebounced;

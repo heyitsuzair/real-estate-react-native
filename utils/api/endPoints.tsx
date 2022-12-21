@@ -1,4 +1,4 @@
-export const HOST = 'http://localhost:5000/api/';
+export const HOST = 'http://10.0.2.2:5000/api/';
 export const getProperty = HOST + 'property/get-property/';
 export const getProperties = HOST + 'property/get-properties/';
 export const searchProperties = HOST + 'property/search-properties/';

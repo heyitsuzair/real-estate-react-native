@@ -6025,6 +6025,11 @@ react-native-codegen@^0.70.6:
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
 
+react-native-debounce-input@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-debounce-input/-/react-native-debounce-input-1.0.5.tgz#481ddf8b505fabaec47e1a4cf59435b733e310ad"
+  integrity sha512-X2GUECrjre//F7ePXWy92Q6NhxaorI+rTVFeoL34ARzOcyMcoPp7mol8GmwR3O8G/PMLn1jfqJOH1ryU8vldDQ==
+
 react-native-gradle-plugin@^0.70.3:
   version "0.70.3"
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.70.3.tgz#cbcf0619cbfbddaa9128701aa2d7b4145f9c4fc8"

@@ -1,56 +1,47 @@
-import {useFormik} from 'formik';
-import React, {useCallback, useState} from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {ActivityIndicator, Text} from 'react-native-paper';
-import TextInputSimple from '../components/commons/TextInputSimple';
-import {searchFormSchema} from '../yupSchemas';
-import {debounce} from 'lodash';
+import TextInputDebounced from '../components/commons/TextInputDebounced';
 import tw from 'twrnc';
+import {findProperties} from '../functions';
 
 const SearchScreen = () => {
   /**
    * State For Loading
    */
-  const [isLoading, setisLoading] = useState<boolean>(true);
+  const [isLoading, setisLoading] = useState<boolean>(false);
 
   /**
-   * Function For Debounce
+   * State To Store Search Input Value
    */
-  const handler = useCallback(
-    debounce(() => {
-      setisLoading(true);
-      setTimeout(() => {
-        setisLoading(false);
-      }, 1500);
-    }, 1500),
-    [],
-  );
+  const [query, setQuery] = useState<string>('');
 
-  const initialValues = {
-    query: '',
+  /**
+   * Search For Properties
+   */
+  const handleChangeSearch = async (text: string): Promise<void> => {
+    /**
+     * Check If Value Of Input Is Empty Than Return Instead Of Calling API
+     */
+    if (!text) {
+      setQuery(text);
+      return;
+    }
+    setQuery(text);
+    setisLoading(true);
+    const foundProperties = await findProperties('1', text);
+    console.log(foundProperties);
+    setisLoading(false);
   };
-
-  const {values, setFieldValue} = useFormik({
-    initialValues: initialValues,
-    validationSchema: searchFormSchema,
-    onSubmit: () => {},
-  });
-
-  // ?Handle On Change Search Input ------------->
-  const handleChangeSearch = (text: string) => {
-    setFieldValue('query', text);
-    handler();
-  };
-  // !Handle On Change Search Input ------------->
 
   return (
     <>
-      <TextInputSimple
+      <TextInputDebounced
         placeholder="Search Your Query"
-        value={values.query}
+        value={query}
         onChangeText={handleChangeSearch}
       />
-      {values.query ? (
+      {query ? (
         isLoading ? (
           <View style={tw`flex items-center justify-center h-full`}>
             <ActivityIndicator color="red" size={60} />
