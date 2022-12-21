@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {ActivityIndicator, Text} from 'react-native-paper';
 import TextInputDebounced from '../components/commons/TextInputDebounced';
 import tw from 'twrnc';
 import {findProperties} from '../functions';
-import ListingsCard from '../components/commons/ListingsCard';
 import PropertiesInfinite from '../components/commons/PropertiesInfinite';
 
 interface PropertiesTypes {
@@ -19,10 +18,7 @@ const SearchScreen = () => {
    * State For Loading
    */
   const [isLoading, setisLoading] = useState<boolean>(false);
-  /**
-   * State For On End Reach Loading
-   */
-  const [isLoadingOnEnd, setisLoadingOnEnd] = useState<boolean>(false);
+
   /**
    * State To Store Found Properties
    */
@@ -53,7 +49,6 @@ const SearchScreen = () => {
    * Fetch Data On Reaching End
    */
   const fetchNextData = async (): Promise<void> => {
-    setisLoadingOnEnd(true);
     const foundProperties = await findProperties(properties.nextPage, query);
     setProperties({
       docs: [...properties.docs, ...foundProperties.docs],
@@ -61,7 +56,6 @@ const SearchScreen = () => {
       nextPage: foundProperties.nextPage,
       totalDocs: foundProperties.totalDocs,
     });
-    setisLoadingOnEnd(false);
   };
 
   return (
@@ -80,7 +74,6 @@ const SearchScreen = () => {
           <PropertiesInfinite
             fetchNextData={fetchNextData}
             properties={properties}
-            isLoadingOnEnd={isLoadingOnEnd}
           />
         )
       ) : (

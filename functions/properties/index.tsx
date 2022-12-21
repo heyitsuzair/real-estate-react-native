@@ -24,9 +24,9 @@ export const fetchProperty = async (id: string | string[] | undefined) => {
 export const fetchProperties = async (pageNo: string) => {
   try {
     /**
-     * Here "/6" Is Limit
+     * Here "/5" Is Limit
      */
-    const {data} = await axios.get(getProperties + pageNo + '/6');
+    const {data} = await axios.get(getProperties + pageNo + '/5');
     return data;
   } catch (error: any) {
     return error.response.data;

@@ -8,6 +8,8 @@ import ContactScreen from '../screens/ContactScreen';
 import SearchScreen from '../screens/SearchScreen';
 import {createStackNavigator} from '@react-navigation/stack';
 import ProductScreen from '../screens/ProductScreen';
+import tw from 'twrnc';
+import {StyleSheet} from 'react-native';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -33,7 +35,10 @@ const Tabs = () => {
         name="shop"
         options={{
           tabBarLabel: 'Shop',
-          headerShown: false,
+          headerShown: true,
+          headerTitle: 'Shop',
+          headerStyle: tw`shadow-lg`,
+          headerTitleStyle: styles.poppinsSemiBold,
           tabBarIcon: ({color}) => (
             <Icon name="shopping-cart" color={color} size={23} />
           ),
@@ -77,10 +82,19 @@ export default function Navigation() {
         />
         <Stack.Screen
           name="product"
-          options={{headerTitle: 'Product Details'}}
+          options={{
+            headerTitle: 'Product Details',
+            headerStyle: tw`shadow-lg`,
+            headerTitleStyle: styles.poppinsSemiBold,
+          }}
           component={ProductScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+const styles = StyleSheet.create({
+  poppinsSemiBold: {
+    fontFamily: 'Poppins-SemiBold',
+  },
+});
