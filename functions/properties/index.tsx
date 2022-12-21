@@ -38,9 +38,9 @@ export const findProperties = async (
 ) => {
   try {
     /**
-     * Here "/6" Is Limit
+     * Here "/5" Is Limit
      */
-    const {data} = await axios.get(searchProperties + query + '/6/' + pageNo);
+    const {data} = await axios.get(searchProperties + query + '/5/' + pageNo);
     return data;
   } catch (error: any) {
     return error.response.data;
@@ -52,12 +52,12 @@ export const getFliteredProperties = async (
 ) => {
   try {
     /**
-     * Here "/6" Is Limit
+     * Here "/5" Is Limit
      */
     const {data} = await axios.get(
       filterProperties +
         pageNo +
-        '/6/' +
+        '/5/' +
         values.area +
         '/' +
         values.status +

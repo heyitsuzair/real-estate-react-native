@@ -1,15 +1,37 @@
 import React, {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import {ActivityIndicator, Text} from 'react-native-paper';
 import TextInputDebounced from '../components/commons/TextInputDebounced';
 import tw from 'twrnc';
 import {findProperties} from '../functions';
+import ListingsCard from '../components/commons/ListingsCard';
+import PropertiesInfinite from '../components/commons/PropertiesInfinite';
+
+interface PropertiesTypes {
+  docs: any[];
+  hasNextPage: boolean;
+  nextPage: string;
+  totalDocs: number;
+}
 
 const SearchScreen = () => {
   /**
    * State For Loading
    */
   const [isLoading, setisLoading] = useState<boolean>(false);
+  /**
+   * State For On End Reach Loading
+   */
+  const [isLoadingOnEnd, setisLoadingOnEnd] = useState<boolean>(true);
+  /**
+   * State To Store Found Properties
+   */
+  const [properties, setProperties] = useState<PropertiesTypes>({
+    docs: [],
+    hasNextPage: false,
+    nextPage: '',
+    totalDocs: 0,
+  });
 
   /**
    * State To Store Search Input Value
@@ -20,18 +42,26 @@ const SearchScreen = () => {
    * Search For Properties
    */
   const handleChangeSearch = async (text: string): Promise<void> => {
-    /**
-     * Check If Value Of Input Is Empty Than Return Instead Of Calling API
-     */
-    if (!text) {
-      setQuery(text);
-      return;
-    }
     setQuery(text);
     setisLoading(true);
     const foundProperties = await findProperties('1', text);
-    console.log(foundProperties);
+    setProperties(foundProperties);
     setisLoading(false);
+  };
+
+  /**
+   * Fetch Data On Reaching End
+   */
+  const fetchNextData = async (): Promise<void> => {
+    setisLoadingOnEnd(true);
+    const foundProperties = await findProperties(properties.nextPage, query);
+    setProperties({
+      docs: [...properties.docs, ...foundProperties.docs],
+      hasNextPage: foundProperties.hasNextPage,
+      nextPage: foundProperties.nextPage,
+      totalDocs: foundProperties.totalDocs,
+    });
+    setisLoadingOnEnd(false);
   };
 
   return (
@@ -47,7 +77,11 @@ const SearchScreen = () => {
             <ActivityIndicator color="red" size={60} />
           </View>
         ) : (
-          <Text style={[styles.notTouched, tw`text-xl`]}>Loaded</Text>
+          <PropertiesInfinite
+            fetchNextData={fetchNextData}
+            properties={properties}
+            isLoadingOnEnd={isLoadingOnEnd}
+          />
         )
       ) : (
         <View style={tw`flex items-center justify-center h-full`}>
