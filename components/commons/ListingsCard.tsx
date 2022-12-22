@@ -38,13 +38,15 @@ const ListingsCard = ({property}: any) => {
   return (
     <Pressable
       onPress={() =>
-        navigation.navigate('product', {
+        navigation.navigate('property', {
           id: property._id,
         })
       }>
       <View style={tw`bg-white rounded-xl`}>
         <Image
-          source={{uri: property.listing_media[0]}}
+          source={{
+            uri: property.listing_media[0].replace('http://', 'https://'),
+          }}
           style={tw`w-full h-44 mx-auto rounded-t-xl`}
           resizeMode="cover"
         />

@@ -7,9 +7,9 @@ import ShopScreen from '../screens/ShopScreen';
 import ContactScreen from '../screens/ContactScreen';
 import SearchScreen from '../screens/SearchScreen';
 import {createStackNavigator} from '@react-navigation/stack';
-import ProductScreen from '../screens/ProductScreen';
 import tw from 'twrnc';
 import {StyleSheet} from 'react-native';
+import PropertyScreen from '../screens/PropertyScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -82,13 +82,13 @@ export default function Navigation() {
           component={Tabs}
         />
         <Stack.Screen
-          name="product"
+          name="property"
           options={{
-            headerTitle: 'Product Details',
+            headerTitle: 'Back',
             headerStyle: tw`shadow-lg`,
             headerTitleStyle: styles.poppinsSemiBold,
           }}
-          component={ProductScreen}
+          component={PropertyScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
