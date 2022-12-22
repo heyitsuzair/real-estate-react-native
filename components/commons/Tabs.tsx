@@ -29,7 +29,7 @@ const Tabs = ({tabs, activeTab, setActiveTab}: PropTypes) => {
           <Pressable
             key={index}
             onPress={() => onPressTab(index)}
-            style={tw`rounded-lg ${tabs.length === 1 && 'w-full px-0'}  px-20 ${
+            style={tw`rounded-lg px-20 ${tabs.length === 1 && 'w-84.5 px-0'}  ${
               isActive && 'bg-white'
             } ${tabs.length - 1 === index && 'mr-2'} py-2`}>
             <Text style={[tw`text-center text-base`, styles.title]}>{tab}</Text>

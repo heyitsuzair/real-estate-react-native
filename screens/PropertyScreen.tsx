@@ -23,6 +23,7 @@ import OurGallery from '../components/property/OurGallery';
 import Amenities from '../components/property/Amenities';
 import Map from '../components/commons/Map';
 import Tabs from '../components/commons/Tabs';
+import TabContent from '../components/commons/TabContent';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -169,11 +170,17 @@ const PropertyScreen = ({route}: any) => {
           </View>
           <View style={tw`my-5`}>
             <HeadingBordered text="Floor Plans" />
-            <View style={tw`my-8`}>
+            <View style={tw`mt-7 mb-4`}>
               <Tabs
                 tabs={tabs}
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
+              />
+            </View>
+
+            <View style={tw``}>
+              <TabContent
+                content={property.property.property_floors[activeTab]}
               />
             </View>
           </View>
