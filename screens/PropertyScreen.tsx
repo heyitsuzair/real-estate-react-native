@@ -18,7 +18,8 @@ import Location from '../components/commons/Location';
 import HeadingBordered from '../components/commons/HeadingBordered';
 import TextSm from '../components/commons/TextSm';
 import PropertyChart from '../components/commons/PropertyChart';
-import FactsAndFeatures from '../components/commons/FactsAndFeatures';
+import FactsAndFeatures from '../components/property/FactsAndFeatures';
+import OurGallery from '../components/property/OurGallery';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -103,9 +104,13 @@ const PropertyScreen = ({route}: any) => {
           <View style={tw`my-5`}>
             <PropertyChart property={property.property} />
           </View>
-          <View style={tw`my-5`}>
+          <View style={tw`mt-5`}>
             <HeadingBordered text="Facts And Features" />
             <FactsAndFeatures />
+          </View>
+          <View style={tw`mb-5`}>
+            <HeadingBordered text="From Our Gallery" />
+            <OurGallery media={property.property.listing_media} />
           </View>
         </View>
         <PreFooter />

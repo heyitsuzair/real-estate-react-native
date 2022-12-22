@@ -1,7 +1,7 @@
 import {View} from 'react-native';
 import React from 'react';
 import tw from 'twrnc';
-import IconWithTitleDescription from './IconWithTitleDescription';
+import IconWithTitleDescription from '../commons/IconWithTitleDescription';
 
 const FactsAndFeatures = () => {
   return (
