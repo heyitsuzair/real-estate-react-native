@@ -69,7 +69,7 @@ const OwnerProfile = ({owner}: PropTypes) => {
           ({owner.total_reviews} Reviews)
         </Text>
       </View>
-      <View style={tw`flex w-full mt-4`}>
+      <View style={tw`w-full mt-4`}>
         <ButtonTextIcon
           onPress={() => Linking.openURL(`tel:${owner.phone_no}`)}
           text="Call Merchant"

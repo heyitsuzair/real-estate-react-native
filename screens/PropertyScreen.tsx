@@ -9,6 +9,10 @@ import {fetchProperty} from '../functions';
 import {ActivityIndicator} from 'react-native-paper';
 import OwnerProfile from '../components/commons/OwnerProfile';
 import FloatingBtn from '../components/commons/FloatingBtn';
+import {capitalizeFirstLetter} from '../utils';
+import Date from '../components/commons/Date';
+import BadgeFilled from '../components/commons/BadgeFilled';
+import CommentsCount from '../components/commons/CommentsCount';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -19,7 +23,7 @@ const PropertyScreen = ({route}: any) => {
   /**
    * State To Store Property Details
    */
-  const [property, setProperty] = useState(null);
+  const [property, setProperty] = useState<any>(null);
 
   /**
    * Property Id From Parameters
@@ -50,7 +54,7 @@ const PropertyScreen = ({route}: any) => {
         icon="phone"
         color="slate"
         onPress={() =>
-          Linking.openURL(`tel:${property.property.seller_id.phone_no}`)
+          Linking.openURL(`tel:${property?.property.seller_id.phone_no}`)
         }
       />
       <ScrollView
@@ -59,7 +63,22 @@ const PropertyScreen = ({route}: any) => {
         <Breadcrumb text="Property Details" />
         <ProductPicsSlider media={property?.property.listing_media} />
         <View style={tw`py-8 px-14 bg-white`}>
-          <OwnerProfile owner={property.property.seller_id} />
+          <OwnerProfile owner={property?.property.seller_id} />
+          <View style={tw`flex items-center my-4`}>
+            <BadgeFilled
+              text={`${
+                property.property.status !== 'sold' && 'For'
+              } ${capitalizeFirstLetter(property.property.status)}`}
+            />
+          </View>
+          <View style={tw`flex items-center`}>
+            <Date date={property.property.createdAt} />
+          </View>
+          <View style={tw`flex items-center my-4`}>
+            <CommentsCount
+              comments={property.property.property_total_reviews}
+            />
+          </View>
         </View>
         <PreFooter />
         <Footer />
