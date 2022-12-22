@@ -15,13 +15,19 @@ const Breadcrumb = ({text}: {text: string}) => {
         <TextSemiLarge text={text} />
         <View style={tw`mt-3 flex flex-row items-center`}>
           <Icon name="home" style={tw`text-red-500`} size={17} />
-          <Text style={[tw`mx-2 text-gray-500 mt-1`, styles.text]}>Home</Text>
+          <Text
+            adjustsFontSizeToFit
+            style={[tw`mx-2 text-gray-500 mt-1`, styles.text]}>
+            Home
+          </Text>
           <Icon
             name="chevron-right"
             style={tw`text-black mx-1 mt-0.5`}
             size={10}
           />
-          <Text style={[tw`mx-2 text-red-500 mt-1`, styles.textSemiBold]}>
+          <Text
+            adjustsFontSizeToFit
+            style={[tw`mx-2 text-red-500 mt-1`, styles.textSemiBold]}>
             {text}
           </Text>
         </View>

@@ -74,11 +74,15 @@ const ListingsCard = ({property}: any) => {
         <View
           style={tw`px-4 flex py-3 items-center justify-between flex-row border-t mt-5 border-slate-300`}>
           <View style={tw`flex flex-row`}>
-            <Text
-              adjustsFontSizeToFit
-              style={[tw`text-white py-4 px-5 rounded-full`, styles.avatar]}>
-              {property.seller_id.name.slice(0, 1).toUpperCase()}
-            </Text>
+            <View
+              style={[
+                tw`w-12 h-12 flex items-center justify-center mx-auto rounded-full`,
+                styles.avatar,
+              ]}>
+              <Text adjustsFontSizeToFit style={[tw`text-white `]}>
+                {property.seller_id.name.slice(0, 1).toUpperCase()}
+              </Text>
+            </View>
             <View style={tw`flex`}>
               <Text
                 adjustsFontSizeToFit
@@ -98,10 +102,9 @@ const ListingsCard = ({property}: any) => {
               </Text>
             </View>
           </View>
-          <View>
-            <Button style={tw`bg-red-500 px-2 py-3 rounded-full`}>
-              <Icon name="external-link" color="white" size={20} />
-            </Button>
+          <View
+            style={tw`w-12 h-12 bg-red-500 flex items-center justify-center rounded-full`}>
+            <Icon name="external-link" color="white" size={20} />
           </View>
         </View>
       </View>

@@ -30,6 +30,8 @@ const PreFooter = () => {
           icon="arrow-right"
           text="Explore New Properties"
           onPress={onPressExplore}
+          initialColor="white"
+          iconPosition="right"
         />
       </View>
     </View>

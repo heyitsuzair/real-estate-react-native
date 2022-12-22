@@ -7,6 +7,7 @@ import tw from 'twrnc';
 import ProductPicsSlider from '../components/commons/ProductPicsSlider';
 import {fetchProperty} from '../functions';
 import {ActivityIndicator} from 'react-native-paper';
+import OwnerProfile from '../components/commons/OwnerProfile';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -48,7 +49,9 @@ const PropertyScreen = ({route}: any) => {
       style={tw`flex-1 bg-white`}>
       <Breadcrumb text="Property Details" />
       <ProductPicsSlider media={property?.property.listing_media} />
-
+      <View style={tw`py-8 px-14 bg-white`}>
+        <OwnerProfile owner={property.property.seller_id} />
+      </View>
       <PreFooter />
       <Footer />
     </ScrollView>
@@ -56,5 +59,3 @@ const PropertyScreen = ({route}: any) => {
 };
 
 export default PropertyScreen;
-
-const styles = StyleSheet.create({});
