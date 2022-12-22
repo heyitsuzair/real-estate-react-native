@@ -25,6 +25,7 @@ import Map from '../components/commons/Map';
 import Tabs from '../components/commons/Tabs';
 import TabContent from '../components/commons/TabContent';
 import PropertyStarRatings from '../components/commons/PropertyStarRatings';
+import AddReviewForm from '../components/commons/AddReviewForm';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -191,6 +192,7 @@ const PropertyScreen = ({route}: any) => {
               rating={property.property.property_average_rating}
               reviews={property.property.property_total_reviews}
             />
+            <AddReviewForm />
           </View>
         </View>
         <PreFooter />

@@ -3,7 +3,7 @@ import React from 'react';
 
 interface PropTypes {
   rating: number;
-  onChange: () => void | undefined;
+  onChange: any;
 }
 
 const StarRatings = ({rating, onChange}: PropTypes) => {

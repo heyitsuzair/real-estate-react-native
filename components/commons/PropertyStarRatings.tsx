@@ -11,7 +11,7 @@ const PropertyStarRatings = ({
   reviews: number;
 }) => {
   return (
-    <View style={tw`flex flex-row items-center my-2`}>
+    <View style={tw`flex flex-row items-center my-6 -ml-2`}>
       <StarRatings rating={rating} onChange={() => {}} />
       <Text style={[tw`text-red-500 text-base mt-1`, styles.poppinsMedium]}>
         ({reviews} Reviews)
