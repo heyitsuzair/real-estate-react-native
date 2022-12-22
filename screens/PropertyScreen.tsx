@@ -9,7 +9,7 @@ import {fetchProperty} from '../functions';
 import {ActivityIndicator} from 'react-native-paper';
 import OwnerProfile from '../components/commons/OwnerProfile';
 import FloatingBtn from '../components/commons/FloatingBtn';
-import {capitalizeFirstLetter} from '../utils';
+import {capitalizeFirstLetter, numberToString} from '../utils';
 import Date from '../components/commons/Date';
 import BadgeFilled from '../components/commons/BadgeFilled';
 import CommentsCount from '../components/commons/CommentsCount';
@@ -22,6 +22,7 @@ import FactsAndFeatures from '../components/property/FactsAndFeatures';
 import OurGallery from '../components/property/OurGallery';
 import Amenities from '../components/property/Amenities';
 import Map from '../components/commons/Map';
+import Tabs from '../components/commons/Tabs';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -35,9 +36,39 @@ const PropertyScreen = ({route}: any) => {
   const [property, setProperty] = useState<any>(null);
 
   /**
+   * Tabs
+   */
+  const [tabs, setTabs] = useState<string[]>([]);
+  /**
+   * State For Active Tab
+   */
+  const [activeTab, setActiveTab] = useState<number>(0);
+
+  /**
    * Property Id From Parameters
    */
   const {id} = route.params;
+
+  type floors = {
+    floor_description: string;
+    floor_media: string;
+    floor_heading: string;
+  };
+
+  /**
+   * Functions To Set Tabs
+   */
+  const orderTabs = (floors: floors[]): void => {
+    let data: string[] = [];
+    /**
+     * Pushing Each Floor To "data" array variable
+     */
+    floors.forEach((floor: floors, index: number) => {
+      data.push(numberToString(index + 1) + ' Floor');
+    });
+
+    setTabs(data);
+  };
 
   /**
    * Fetch Details Of Product
@@ -45,6 +76,11 @@ const PropertyScreen = ({route}: any) => {
   const getProperty = async (): Promise<void> => {
     const propertyDetails = await fetchProperty(id);
     setProperty(propertyDetails);
+
+    /**
+     * Settings Tabs
+     */
+    orderTabs(propertyDetails.property.property_floors);
     setIsLoading(false);
   };
 
@@ -128,6 +164,16 @@ const PropertyScreen = ({route}: any) => {
                 lng={property.property.property_address.lng}
                 title="Property Address"
                 description={property.property.property_address.address}
+              />
+            </View>
+          </View>
+          <View style={tw`my-5`}>
+            <HeadingBordered text="Floor Plans" />
+            <View style={tw`my-8`}>
+              <Tabs
+                tabs={tabs}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
               />
             </View>
           </View>
