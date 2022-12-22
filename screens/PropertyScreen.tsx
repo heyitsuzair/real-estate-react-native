@@ -13,6 +13,8 @@ import {capitalizeFirstLetter} from '../utils';
 import Date from '../components/commons/Date';
 import BadgeFilled from '../components/commons/BadgeFilled';
 import CommentsCount from '../components/commons/CommentsCount';
+import TextMedium from '../components/commons/TextMedium';
+import Location from '../components/commons/Location';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -62,9 +64,9 @@ const PropertyScreen = ({route}: any) => {
         style={tw`flex-1 bg-white`}>
         <Breadcrumb text="Property Details" />
         <ProductPicsSlider media={property?.property.listing_media} />
-        <View style={tw`py-8 px-14 bg-white`}>
+        <View style={tw`py-8 px-8 bg-white`}>
           <OwnerProfile owner={property?.property.seller_id} />
-          <View style={tw`flex items-center my-4`}>
+          <View style={tw`flex items-center mb-4 mt-7`}>
             <BadgeFilled
               text={`${
                 property.property.status !== 'sold' && 'For'
@@ -74,10 +76,16 @@ const PropertyScreen = ({route}: any) => {
           <View style={tw`flex items-center`}>
             <Date date={property.property.createdAt} />
           </View>
-          <View style={tw`flex items-center my-4`}>
+          <View style={tw`flex items-center mt-4 mb-7`}>
             <CommentsCount
               comments={property.property.property_total_reviews}
             />
+          </View>
+          <View>
+            <TextMedium text={property.property.title} />
+          </View>
+          <View style={tw`my-5`}>
+            <Location location={property.property.property_address.address} />
           </View>
         </View>
         <PreFooter />

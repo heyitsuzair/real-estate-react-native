@@ -19,7 +19,11 @@ const Date = ({date}: {date: string}) => {
   return (
     <View style={tw`flex flex-row items-center`}>
       <Icon name="calendar-alt" color="red" size={20} />
-      <Text style={[styles.poppinsMedium, tw`mt-1.5 ml-2`]}>{currentDate}</Text>
+      <Text
+        adjustsFontSizeToFit
+        style={[styles.poppinsMedium, tw`mt-1.5 ml-2`]}>
+        {currentDate}
+      </Text>
     </View>
   );
 };

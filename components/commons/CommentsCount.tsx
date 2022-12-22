@@ -7,7 +7,9 @@ const CommentsCount = ({comments}: {comments: string}) => {
   return (
     <View style={tw`flex flex-row items-center`}>
       <Icon name="comments-o" color="red" size={20} />
-      <Text style={[styles.poppinsMedium, tw`mt-1.5 ml-2`]}>
+      <Text
+        adjustsFontSizeToFit
+        style={[styles.poppinsMedium, tw`mt-1.5 ml-2`]}>
         {comments} Comments
       </Text>
     </View>
