@@ -21,6 +21,7 @@ import PropertyChart from '../components/commons/PropertyChart';
 import FactsAndFeatures from '../components/property/FactsAndFeatures';
 import OurGallery from '../components/property/OurGallery';
 import Amenities from '../components/property/Amenities';
+import Map from '../components/commons/Map';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -118,6 +119,17 @@ const PropertyScreen = ({route}: any) => {
             <Amenities
               propert_amenities={property.property.property_amenities}
             />
+          </View>
+          <View style={tw`my-5`}>
+            <HeadingBordered text="Location" />
+            <View style={tw`mt-7 overflow-hidden`}>
+              <Map
+                lat={property.property.property_address.lat}
+                lng={property.property.property_address.lng}
+                title="Property Address"
+                description={property.property.property_address.address}
+              />
+            </View>
           </View>
         </View>
         <PreFooter />
