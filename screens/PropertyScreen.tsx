@@ -1,4 +1,4 @@
-import {StyleSheet, ScrollView, View} from 'react-native';
+import {Linking, ScrollView, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import PreFooter from '../components/commons/PreFooter';
 import Footer from '../components/commons/Footer';
@@ -8,6 +8,7 @@ import ProductPicsSlider from '../components/commons/ProductPicsSlider';
 import {fetchProperty} from '../functions';
 import {ActivityIndicator} from 'react-native-paper';
 import OwnerProfile from '../components/commons/OwnerProfile';
+import FloatingBtn from '../components/commons/FloatingBtn';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -44,17 +45,26 @@ const PropertyScreen = ({route}: any) => {
       <ActivityIndicator color="red" size={60} />
     </View>
   ) : (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      style={tw`flex-1 bg-white`}>
-      <Breadcrumb text="Property Details" />
-      <ProductPicsSlider media={property?.property.listing_media} />
-      <View style={tw`py-8 px-14 bg-white`}>
-        <OwnerProfile owner={property.property.seller_id} />
-      </View>
-      <PreFooter />
-      <Footer />
-    </ScrollView>
+    <>
+      <FloatingBtn
+        icon="phone"
+        color="slate"
+        onPress={() =>
+          Linking.openURL(`tel:${property.property.seller_id.phone_no}`)
+        }
+      />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={tw`flex-1 bg-white`}>
+        <Breadcrumb text="Property Details" />
+        <ProductPicsSlider media={property?.property.listing_media} />
+        <View style={tw`py-8 px-14 bg-white`}>
+          <OwnerProfile owner={property.property.seller_id} />
+        </View>
+        <PreFooter />
+        <Footer />
+      </ScrollView>
+    </>
   );
 };
 

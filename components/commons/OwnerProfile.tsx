@@ -4,7 +4,16 @@ import tw from 'twrnc';
 import ButtonTextIcon from './ButtonTextIcon';
 import StarRatings from './StarRatings';
 
-const OwnerProfile = ({owner}) => {
+interface PropTypes {
+  owner: {
+    name: string;
+    phone_no: string;
+    total_reviews: number;
+    rating: number;
+  };
+}
+
+const OwnerProfile = ({owner}: PropTypes) => {
   /**
    * Generate Random Colors For Avatar
    */
