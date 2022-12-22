@@ -15,7 +15,7 @@ const HeadingBordered = ({text}: {text: string}) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: 'Poppins-Medium',
+    fontFamily: 'Poppins-SemiBold',
   },
 });
 export default HeadingBordered;

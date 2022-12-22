@@ -20,6 +20,7 @@ import TextSm from '../components/commons/TextSm';
 import PropertyChart from '../components/commons/PropertyChart';
 import FactsAndFeatures from '../components/property/FactsAndFeatures';
 import OurGallery from '../components/property/OurGallery';
+import Amenities from '../components/property/Amenities';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -111,6 +112,12 @@ const PropertyScreen = ({route}: any) => {
           <View style={tw`mb-5`}>
             <HeadingBordered text="From Our Gallery" />
             <OurGallery media={property.property.listing_media} />
+          </View>
+          <View style={tw`mb-5`}>
+            <HeadingBordered text="Amenities" />
+            <Amenities
+              propert_amenities={property.property.property_amenities}
+            />
           </View>
         </View>
         <PreFooter />
