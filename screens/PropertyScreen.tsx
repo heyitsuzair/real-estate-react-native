@@ -18,6 +18,7 @@ import Location from '../components/commons/Location';
 import HeadingBordered from '../components/commons/HeadingBordered';
 import TextSm from '../components/commons/TextSm';
 import PropertyChart from '../components/commons/PropertyChart';
+import FactsAndFeatures from '../components/commons/FactsAndFeatures';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -100,7 +101,11 @@ const PropertyScreen = ({route}: any) => {
             <HeadingBordered text="Property Detail" />
           </View>
           <View style={tw`my-5`}>
-            <PropertyChart />
+            <PropertyChart property={property.property} />
+          </View>
+          <View style={tw`my-5`}>
+            <HeadingBordered text="Facts And Features" />
+            <FactsAndFeatures />
           </View>
         </View>
         <PreFooter />

@@ -1,8 +1,9 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import tw from 'twrnc';
+import {capitalizeFirstLetter} from '../../utils';
 
-const PropertyChart = () => {
+const PropertyChart = ({property}: any) => {
   return (
     <View style={tw`bg-slate-100 p-8 rounded-md shadow-md`}>
       <View style={tw`flex flex-row`}>
@@ -18,28 +19,29 @@ const PropertyChart = () => {
         </View>
         <View>
           <Text style={[tw`text-black mb-4.05 mx-6`, styles.value]}>
-            Home Area:
+            {property.property_size} SQFT
           </Text>
           <Text style={[tw`text-black mb-4.05 mx-6`, styles.value]}>
-            Baths:
+            {property.property_bath_rooms}
           </Text>
           <Text style={[tw`text-black mb-4.05 mx-6`, styles.value]}>
-            Bed Rooms:
+            {property.property_bed_rooms}
           </Text>
           <Text style={[tw`text-black mb-4.05 mx-6`, styles.value]}>
-            Year Built:
+            {property.property_year_built}
           </Text>
           <Text style={[tw`text-black mb-4.05 mx-6`, styles.value]}>
-            Lot Size:
+            {property.property_lot_size} SQFT
           </Text>
           <Text style={[tw`text-black mb-4.05 mx-6`, styles.value]}>
-            Garages:
+            {property.property_garages}
           </Text>
           <Text style={[tw`text-black mb-4.05 mx-6`, styles.value]}>
-            Garages Size:
+            {property.property_garages_size} SQFT
           </Text>
           <Text style={[tw`text-black mb-3 mx-6`, styles.value]}>
-            Property Status:
+            {property.status !== 'sold' && 'For'}{' '}
+            {capitalizeFirstLetter(property.status)}
           </Text>
         </View>
       </View>
