@@ -15,6 +15,9 @@ import BadgeFilled from '../components/commons/BadgeFilled';
 import CommentsCount from '../components/commons/CommentsCount';
 import TextMedium from '../components/commons/TextMedium';
 import Location from '../components/commons/Location';
+import HeadingBordered from '../components/commons/HeadingBordered';
+import TextSm from '../components/commons/TextSm';
+import PropertyChart from '../components/commons/PropertyChart';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -86,6 +89,18 @@ const PropertyScreen = ({route}: any) => {
           </View>
           <View style={tw`my-5`}>
             <Location location={property.property.property_address.address} />
+          </View>
+          <View style={tw`my-5`}>
+            <HeadingBordered text="Description" />
+          </View>
+          <View style={tw`my-5`}>
+            <TextSm text={property.property.description} />
+          </View>
+          <View style={tw`my-5`}>
+            <HeadingBordered text="Property Detail" />
+          </View>
+          <View style={tw`my-5`}>
+            <PropertyChart />
           </View>
         </View>
         <PreFooter />
