@@ -24,6 +24,7 @@ import Amenities from '../components/property/Amenities';
 import Map from '../components/commons/Map';
 import Tabs from '../components/commons/Tabs';
 import TabContent from '../components/commons/TabContent';
+import PropertyStarRatings from '../components/commons/PropertyStarRatings';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -183,6 +184,13 @@ const PropertyScreen = ({route}: any) => {
                 content={property.property.property_floors[activeTab]}
               />
             </View>
+          </View>
+          <View style={tw`my-5`}>
+            <HeadingBordered text="Customer Reviews" />
+            <PropertyStarRatings
+              rating={property.property.property_average_rating}
+              reviews={property.property.property_total_reviews}
+            />
           </View>
         </View>
         <PreFooter />
