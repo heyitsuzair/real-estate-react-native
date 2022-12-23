@@ -46,6 +46,10 @@ const PropertyScreen = ({route}: any) => {
    * State For Active Tab
    */
   const [activeTab, setActiveTab] = useState<number>(0);
+  /**
+   * State For Comment Addition
+   */
+  const [isCommentAdded, setIsCommentAdded] = useState<boolean>(false);
 
   /**
    * Property Id From Parameters
@@ -90,7 +94,7 @@ const PropertyScreen = ({route}: any) => {
   useEffect(() => {
     getProperty();
     //eslint-disable-next-line
-  }, []);
+  }, [isCommentAdded]);
 
   return isLoading ? (
     <View style={tw`flex items-center justify-center h-full`}>
@@ -192,7 +196,10 @@ const PropertyScreen = ({route}: any) => {
               rating={property.property.property_average_rating}
               reviews={property.property.property_total_reviews}
             />
-            <AddReviewForm />
+            <AddReviewForm
+              property_id={property.property._id}
+              setIsCommentAdded={setIsCommentAdded}
+            />
           </View>
         </View>
         <PreFooter />
