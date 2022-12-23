@@ -11,6 +11,7 @@ import TextInputValidated from './TextInputValidated';
 import ButtonRed from './ButtonRed';
 import {submitReview} from '../../functions';
 import {ActivityIndicator} from 'react-native-paper';
+import {showMessage} from 'react-native-flash-message';
 
 interface PropTypes {
   setIsCommentAdded: any;
@@ -22,10 +23,6 @@ const AddReviewForm = ({property_id, setIsCommentAdded}: PropTypes) => {
    * State To Show Loader When Form Is Submitted
    */
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  /**
-   * State To Show Loader When Form Is Submitted
-   */
-  const [isReviewAdded, setIsReviewAdded] = useState<boolean>(false);
 
   const initialValues = {
     stars: 0,
@@ -58,11 +55,10 @@ const AddReviewForm = ({property_id, setIsCommentAdded}: PropTypes) => {
         }
         setIsLoading(false);
 
-        setIsReviewAdded(true);
-
-        setTimeout(() => {
-          setIsReviewAdded(false);
-        }, 3000);
+        showMessage({
+          message: reviewAdded.msg,
+          type: 'success',
+        });
 
         action.resetForm();
       },
@@ -131,14 +127,6 @@ const AddReviewForm = ({property_id, setIsCommentAdded}: PropTypes) => {
       {isLoading ? (
         <View style={tw`my-5 flex items-start`}>
           <ActivityIndicator color="red" size={35} />
-        </View>
-      ) : isReviewAdded ? (
-        <View style={tw`my-5 flex items-start`}>
-          <Text
-            adjustsFontSizeToFit
-            style={tw`text-green-500 text-lg font-semibold`}>
-            Review Added!
-          </Text>
         </View>
       ) : (
         <View style={tw`my-5 flex items-start`}>

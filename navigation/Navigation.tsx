@@ -10,6 +10,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import tw from 'twrnc';
 import {StyleSheet} from 'react-native';
 import PropertyScreen from '../screens/PropertyScreen';
+import FlashMessage from 'react-native-flash-message';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -91,6 +92,7 @@ export default function Navigation() {
           component={PropertyScreen}
         />
       </Stack.Navigator>
+      <FlashMessage titleStyle={styles.poppinsSemiBold} position="top" />
     </NavigationContainer>
   );
 }

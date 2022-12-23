@@ -7,7 +7,6 @@ const App = () => {
   return (
     <SafeAreaView style={tw`flex-1`}>
       <StatusBar backgroundColor={'red'} />
-
       <Navigation />
     </SafeAreaView>
   );
