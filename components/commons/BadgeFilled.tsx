@@ -5,6 +5,7 @@ const BadgeFilled = ({text}: {text: string}) => {
   return (
     <View style={tw`rounded-full bg-red-500 px-8 py-1.5`}>
       <Text
+        adjustsFontSizeToFit
         style={[tw`text-center text-base text-white`, styles.poppinsSemiBold]}>
         {text}
       </Text>

@@ -27,7 +27,9 @@ const Amenities = ({propert_amenities}: {propert_amenities: string[]}) => {
               uncheckedColor="gray"
               color="red"
             />
-            <Text style={[styles.text, tw`mt-1 text-gray-700`]}>
+            <Text
+              adjustsFontSizeToFit
+              style={[styles.text, tw`mt-1 text-gray-700`]}>
               {checkbox.value}
             </Text>
           </View>

@@ -26,6 +26,7 @@ import Tabs from '../components/commons/Tabs';
 import TabContent from '../components/commons/TabContent';
 import PropertyStarRatings from '../components/commons/PropertyStarRatings';
 import AddReviewForm from '../components/commons/AddReviewForm';
+import Comments from '../components/property/Comments';
 
 const PropertyScreen = ({route}: any) => {
   /**
@@ -196,10 +197,13 @@ const PropertyScreen = ({route}: any) => {
               rating={property.property.property_average_rating}
               reviews={property.property.property_total_reviews}
             />
-            <AddReviewForm
-              property_id={property.property._id}
-              setIsCommentAdded={setIsCommentAdded}
-            />
+            <Comments comments={property.reviews} />
+            <View style={tw`mt-10`}>
+              <AddReviewForm
+                property_id={property.property._id}
+                setIsCommentAdded={setIsCommentAdded}
+              />
+            </View>
           </View>
         </View>
         <PreFooter />

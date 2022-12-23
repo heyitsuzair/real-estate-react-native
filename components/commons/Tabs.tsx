@@ -1,5 +1,4 @@
 import {Pressable, ScrollView, StyleSheet} from 'react-native';
-import {View} from 'react-native-animatable';
 import {Text} from 'react-native-paper';
 import tw from 'twrnc';
 import React from 'react';
@@ -32,7 +31,11 @@ const Tabs = ({tabs, activeTab, setActiveTab}: PropTypes) => {
             key={index}
             onPress={() => onPressTab(index)}
             style={tw`rounded-lg px-20 ${isSingle} ${isActive} ${isLast} py-2`}>
-            <Text style={[tw`text-center text-base`, styles.title]}>{tab}</Text>
+            <Text
+              adjustsFontSizeToFit
+              style={[tw`text-center text-base`, styles.title]}>
+              {tab}
+            </Text>
           </Pressable>
         );
       })}
