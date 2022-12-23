@@ -12,7 +12,7 @@ const Breadcrumb = ({text}: {text: string}) => {
     <View>
       <Image source={image} resizeMode="cover" style={styles.bgImage} />
       <View style={tw`absolute top-10 left-6`}>
-        <TextSemiLarge text={text} />
+        <TextSemiLarge align="left" text={text} />
         <View style={tw`mt-3 flex flex-row items-center`}>
           <Icon name="home" style={tw`text-red-500`} size={17} />
           <Text

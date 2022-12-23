@@ -3,9 +3,17 @@ import React from 'react';
 import {Text} from 'react-native-paper';
 import tw from 'twrnc';
 
-const TextSemiLarge = ({text}: {text: string}) => {
+const TextSemiLarge = ({
+  text,
+  align,
+}: {
+  text: string;
+  align: string | undefined;
+}) => {
+  const alignment = align ? 'text-' + align : '';
+
   return (
-    <Text adjustsFontSizeToFit style={[tw`text-3xl`, styles.text]}>
+    <Text adjustsFontSizeToFit style={[tw`text-3xl ${alignment}`, styles.text]}>
       {text}
     </Text>
   );

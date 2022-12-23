@@ -19,7 +19,7 @@ const TabContent = ({content}: PropTypes) => {
         style={tw`w-full h-90`}
       />
       <View style={tw`py-13 px-8 flex items-center`}>
-        <TextSemiLarge text={content.floor_heading} />
+        <TextSemiLarge align="center" text={content.floor_heading} />
         <Text
           adjustsFontSizeToFit
           style={[tw`text-base mt-5 text-center text-slate-500`, styles.text]}>

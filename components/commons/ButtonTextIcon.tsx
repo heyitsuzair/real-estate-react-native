@@ -5,10 +5,10 @@ import tw from 'twrnc';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 interface PropTypes {
-  icon: string;
+  icon: string | undefined;
   text: string;
   initialColor: 'white' | 'red';
-  iconPosition: 'left' | 'right';
+  iconPosition: 'left' | 'right' | undefined;
   onPress: () => void;
 }
 
@@ -49,13 +49,13 @@ const ButtonTextIcon = ({
     <>
       <TouchableHighlight {...touchProps}>
         <View style={tw`flex flex-row justify-center items-center`}>
-          {iconPosition === 'left' && (
+          {icon !== undefined && iconPosition === 'left' && (
             <Icon name={icon} style={[tw`ml-2`, styles.textColor]} size={17} />
           )}
           <Text style={[styles.textColor, styles.poppins, tw`mt-0.5`]}>
             {text}
           </Text>
-          {iconPosition === 'right' && (
+          {icon !== undefined && iconPosition === 'right' && (
             <Icon name={icon} style={[tw`ml-2`, styles.textColor]} size={17} />
           )}
         </View>
