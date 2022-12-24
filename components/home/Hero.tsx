@@ -122,7 +122,7 @@ const Hero = () => {
         </View>
       </Slick>
       <View
-        style={tw`top-100 bg-white mx-5 left-0 right-0 absolute p-5 rounded-lg shadow-2xl shadow-slate-300`}>
+        style={tw`top-100 bg-white mx-5 left-0 right-0 absolute p-5 rounded-lg shadow-2xl shadow-slate-300 z-10`}>
         <FindNowContainer />
       </View>
     </View>

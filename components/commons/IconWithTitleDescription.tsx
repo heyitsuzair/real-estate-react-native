@@ -4,8 +4,8 @@ import tw from 'twrnc';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface PropTypes {
-  title: string;
-  description: string;
+  title: string | undefined;
+  description: string | undefined;
   icon: string;
 }
 
@@ -17,10 +17,12 @@ const IconWithTitleDescription = ({title, description, icon}: PropTypes) => {
         <Icon name={icon} color="red" size={20} />
       </View>
       <View style={tw`mx-3`}>
-        <Text style={[tw`text-black font-semibold`, styles.title]}>
-          {title}
-        </Text>
-        <Text>{description}</Text>
+        {title && (
+          <Text style={[tw`text-black font-semibold`, styles.title]}>
+            {title}
+          </Text>
+        )}
+        {description && <Text>{description}</Text>}
       </View>
     </View>
   );
