@@ -42,7 +42,7 @@ const ListingsCard = ({property}: any) => {
           id: property._id,
         })
       }>
-      <View style={tw`bg-white rounded-xl`}>
+      <View style={tw`bg-white pb-8 rounded-xl  shadow-lg`}>
         <Image
           source={{
             uri: property.listing_media[0].replace('http://', 'https://'),
@@ -59,7 +59,10 @@ const ListingsCard = ({property}: any) => {
         </Text>
         <Text
           adjustsFontSizeToFit
-          style={[tw`px-4 py-1 text-xl text-black`, styles.title]}>
+          style={[
+            tw`px-4 py-1 text-xl min-h-[16%] max-h-[17%] text-black`,
+            styles.title,
+          ]}>
           {property.title}
         </Text>
         <Text
