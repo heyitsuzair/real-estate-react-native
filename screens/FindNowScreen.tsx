@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {ActivityIndicator} from 'react-native-paper';
 import tw from 'twrnc';
-import {fetchProperties} from '../functions';
+import {getFliteredProperties} from '../functions';
 import PropertiesInfinite from '../components/commons/PropertiesInfinite';
+import {capitalizeFirstLetter} from '../utils';
 
 interface PropertiesTypes {
   docs: any[];
@@ -12,11 +13,16 @@ interface PropertiesTypes {
   totalDocs: number;
 }
 
-const ShopScreen = () => {
+const FindNowScreen = ({route}: any) => {
   /**
    * State For Loading
    */
   const [isLoading, setisLoading] = useState<boolean>(false);
+
+  /**
+   * Property Area,Status,Type To Filter From Parameters
+   */
+  const {area, status, type} = route.params;
 
   /**
    * State To Store Found Properties
@@ -31,9 +37,14 @@ const ShopScreen = () => {
   /**
    * Search For Properties
    */
-  const getShopData = async (): Promise<void> => {
+  const getFindNowData = async (): Promise<void> => {
     setisLoading(true);
-    const propertiesData = await fetchProperties('1');
+    const values = {
+      area,
+      status,
+      type,
+    };
+    const propertiesData = await getFliteredProperties('1', values);
     setProperties(propertiesData);
     setisLoading(false);
   };
@@ -42,7 +53,15 @@ const ShopScreen = () => {
    * Fetch Data On Reaching End
    */
   const fetchNextData = async (): Promise<void> => {
-    const foundProperties = await fetchProperties(properties.nextPage);
+    const values = {
+      area,
+      status,
+      type,
+    };
+    const foundProperties = await getFliteredProperties(
+      properties.nextPage,
+      values,
+    );
     setProperties({
       docs: [...properties.docs, ...foundProperties.docs],
       hasNextPage: foundProperties.hasNextPage,
@@ -52,7 +71,7 @@ const ShopScreen = () => {
   };
 
   useEffect(() => {
-    getShopData();
+    getFindNowData();
   }, []);
 
   return (
@@ -62,14 +81,16 @@ const ShopScreen = () => {
           <ActivityIndicator color="red" size={60} />
         </View>
       ) : (
-        <PropertiesInfinite
-          breadcrumb="Shop"
-          fetchNextData={fetchNextData}
-          properties={properties}
-        />
+        <>
+          <PropertiesInfinite
+            breadcrumb={`Search Results For (${capitalizeFirstLetter(area)})`}
+            fetchNextData={fetchNextData}
+            properties={properties}
+          />
+        </>
       )}
     </>
   );
 };
 
-export default ShopScreen;
+export default FindNowScreen;

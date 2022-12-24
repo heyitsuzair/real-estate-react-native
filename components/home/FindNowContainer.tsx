@@ -6,8 +6,11 @@ import {FindNowSchema} from '../../yupSchemas';
 import PaperSelectInput from '../commons/PaperSelectInput';
 import tw from 'twrnc';
 import ButtonRed from '../commons/ButtonRed';
+import {useNavigation} from '@react-navigation/native';
 
 const FindNowContainer = () => {
+  const navigation = useNavigation();
+
   const initialValues = {
     area: '',
     status: '',
@@ -18,7 +21,7 @@ const FindNowContainer = () => {
     initialValues,
     validationSchema: FindNowSchema,
     onSubmit: (values, action) => {
-      console.log(values);
+      navigation.navigate('findNow', values);
     },
   });
 

@@ -1,21 +1,15 @@
+import {StyleSheet} from 'react-native';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import SearchScreen from '../screens/SearchScreen';
+import ContactScreen from '../screens/ContactScreen';
+import ShopScreen from '../screens/ShopScreen';
 import HomeScreen from '../screens/HomeScreen';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import ShopScreen from '../screens/ShopScreen';
-import ContactScreen from '../screens/ContactScreen';
-import SearchScreen from '../screens/SearchScreen';
-import {createStackNavigator} from '@react-navigation/stack';
 import tw from 'twrnc';
-import {StyleSheet} from 'react-native';
-import PropertyScreen from '../screens/PropertyScreen';
-import FlashMessage from 'react-native-flash-message';
-
-const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const Tabs = () => {
+const TabNav = () => {
   return (
     <Tab.Navigator
       initialRouteName="home"
@@ -37,7 +31,7 @@ const Tabs = () => {
         name="shop"
         options={{
           tabBarLabel: 'Shop',
-          headerShown: true,
+          headerShown: false,
           headerTitle: 'Shop',
           headerStyle: tw`shadow-lg`,
           headerTitleStyle: styles.poppinsSemiBold,
@@ -73,29 +67,8 @@ const Tabs = () => {
   );
 };
 
-export default function Navigation() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="tabs"
-          options={{headerShown: false}}
-          component={Tabs}
-        />
-        <Stack.Screen
-          name="property"
-          options={{
-            headerTitle: 'Back',
-            headerStyle: tw`shadow-lg`,
-            headerTitleStyle: styles.poppinsSemiBold,
-          }}
-          component={PropertyScreen}
-        />
-      </Stack.Navigator>
-      <FlashMessage titleStyle={styles.poppinsSemiBold} position="top" />
-    </NavigationContainer>
-  );
-}
+export default TabNav;
+
 const styles = StyleSheet.create({
   poppinsSemiBold: {
     fontFamily: 'Poppins-SemiBold',

@@ -6,8 +6,9 @@ import {ActivityIndicator} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
 import Footer from './Footer';
 import PreFooter from './PreFooter';
+import Breadcrumb from './Breadcrumb';
 
-const PropertiesInfinite = ({fetchNextData, properties}: any) => {
+const PropertiesInfinite = ({fetchNextData, properties, breadcrumb}: any) => {
   return (
     <FlatList
       data={properties.docs}
@@ -17,8 +18,9 @@ const PropertiesInfinite = ({fetchNextData, properties}: any) => {
         }
       }}
       onEndReachedThreshold={0.3}
+      ListHeaderComponent={breadcrumb && <Breadcrumb text={breadcrumb} />}
       ListEmptyComponent={
-        <View style={tw`flex items-center justify-center`}>
+        <View style={tw`flex items-center bg-white py-4 justify-center`}>
           <Text adjustsFontSizeToFit style={[styles.notFound, tw`text-sm`]}>
             Sorry! We Cannot Find What You Are Looking For
           </Text>
