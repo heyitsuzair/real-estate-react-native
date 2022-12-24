@@ -6,7 +6,6 @@ import DottedTextSemiLarge from '../commons/DottedTextSemiLarge';
 import TextSm from '../commons/TextSm';
 import IconWithTitleDescription from '../commons/IconWithTitleDescription';
 import Quotation from '../commons/Quotation';
-import ButtonRed from '../commons/ButtonRed';
 import {useNavigation} from '@react-navigation/native';
 import ButtonTextIcon from '../commons/ButtonTextIcon';
 
@@ -16,7 +15,7 @@ const AboutSection = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={tw`mt-27 p-7 items-start bg-white`}>
+    <View style={tw`mt-27 px-7 py-4 items-start bg-white`}>
       <Image resizeMode="contain" style={tw`w-full`} source={image} />
       <View style={tw`ml-4 -mt-28 items-start`}>
         <Badge text="About Us" />
