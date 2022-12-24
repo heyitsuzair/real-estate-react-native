@@ -12,7 +12,9 @@ const ButtonRed = ({text, onPress}: PropTypes) => {
     <Pressable
       style={tw`bg-red-500 shadow-red-900 shadow-2xl py-3 px-5 rounded-lg`}
       onPress={() => onPress()}>
-      <Text style={[tw`text-white text-base`, styles.poppinsBold]}>{text}</Text>
+      <Text style={[tw`text-white text-center text-base`, styles.poppinsBold]}>
+        {text}
+      </Text>
     </Pressable>
   );
 };

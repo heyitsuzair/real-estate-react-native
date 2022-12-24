@@ -1,4 +1,4 @@
-import {ScrollView} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import React from 'react';
 import PreFooter from '../components/commons/PreFooter';
 import Footer from '../components/commons/Footer';
@@ -9,8 +9,10 @@ const HomeScreen = () => {
   return (
     <ScrollView style={tw`flex-1`}>
       <Hero />
-      <PreFooter />
-      <Footer />
+      <View style={tw`mt-100`}>
+        <PreFooter />
+        <Footer />
+      </View>
     </ScrollView>
   );
 };
