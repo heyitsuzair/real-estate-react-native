@@ -142,7 +142,7 @@ const PropertyScreen = ({route}: any) => {
             <HeadingBordered text="Description" />
           </View>
           <View style={tw`my-5`}>
-            <TextSm text={property.property.description} />
+            <TextSm align="left" text={property.property.description} />
           </View>
           <View style={tw`my-5`}>
             <HeadingBordered text="Property Detail" />

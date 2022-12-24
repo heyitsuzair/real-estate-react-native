@@ -48,7 +48,7 @@ const Comment = ({comment}: PropTypes) => {
         <DateBadge fullDate={comment.createdAt} />
       </View>
       <View style={tw`my-5`}>
-        <TextSm text={comment.msg} />
+        <TextSm align="center" text={comment.msg} />
       </View>
     </View>
   );

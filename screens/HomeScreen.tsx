@@ -7,6 +7,7 @@ import tw from 'twrnc';
 import AboutSection from '../components/home/AboutSection';
 import CountersSection from '../components/home/CountersSection';
 import {IOScrollView} from 'react-native-intersection-observer';
+import OurServices from '../components/home/OurServices';
 
 const HomeScreen = () => {
   return (
@@ -14,6 +15,7 @@ const HomeScreen = () => {
       <Hero />
       <AboutSection />
       <CountersSection />
+      <OurServices />
       <View style={tw`mt-100`}>
         <PreFooter />
         <Footer />

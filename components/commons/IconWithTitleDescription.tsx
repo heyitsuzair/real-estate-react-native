@@ -10,13 +10,15 @@ interface PropTypes {
 }
 
 const IconWithTitleDescription = ({title, description, icon}: PropTypes) => {
+  const margin = title || description ? 'mx-3' : '';
+
   return (
     <View style={tw`flex flex-row items-center`}>
       <View
         style={tw`bg-red-100 flex items-center justify-center w-10 h-10 rounded-full`}>
         <Icon name={icon} color="red" size={20} />
       </View>
-      <View style={tw`mx-3`}>
+      <View style={tw`${margin}`}>
         {title && (
           <Text style={[tw`text-black font-semibold`, styles.title]}>
             {title}
