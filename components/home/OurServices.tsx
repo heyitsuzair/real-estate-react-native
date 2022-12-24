@@ -4,8 +4,8 @@ import tw from 'twrnc';
 import Badge from '../commons/Badge';
 import TextSemiLarge from '../commons/TextSemiLarge';
 import IconnedCard from '../commons/IconnedCard';
-import {MainFocusCards} from '../../cards';
 import {useCountUp} from 'use-count-up';
+import {MainFocusCards} from '../../cards';
 
 const OurServices = () => {
   const [activeCard, setActiveCard] = useState<null | number>(null);
@@ -41,6 +41,7 @@ const OurServices = () => {
                 buttonText={focus.buttonText}
                 buttonIcon={focus.buttonIcon}
                 navigateTo={focus.navigateTo}
+                navigationType={focus.navigationType}
               />
             </View>
           );

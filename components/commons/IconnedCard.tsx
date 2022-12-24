@@ -1,4 +1,4 @@
-import {Pressable, View} from 'react-native';
+import {Pressable, View, Linking} from 'react-native';
 import React, {Dispatch, SetStateAction} from 'react';
 import tw from 'twrnc';
 import TextXLBolded from './TextXLBolded';
@@ -20,6 +20,7 @@ interface PropTypes {
   width: string;
   setIsCounting: Dispatch<SetStateAction<boolean>>;
   reset: () => void;
+  navigationType: 'link' | 'screen';
 }
 
 const IconnedCard = ({
@@ -35,6 +36,7 @@ const IconnedCard = ({
   width,
   setIsCounting,
   reset,
+  navigationType,
 }: PropTypes) => {
   const navigation = useNavigation();
 
@@ -64,6 +66,19 @@ const IconnedCard = ({
     setActiveCard(index);
   };
 
+  const onPressButton = () => {
+    /**
+     * Navigate To Path
+     */
+    if (navigateTo !== undefined) {
+      if (navigationType === 'screen') {
+        navigation.navigate(navigateTo);
+      } else {
+        Linking.openURL(navigateTo);
+      }
+    }
+  };
+
   return (
     <Pressable onPress={() => onPressCard()}>
       <View style={tw`shadow-xl px-8 w-70 bg-white items-center`}>
@@ -74,15 +89,12 @@ const IconnedCard = ({
         )}
         {heading && (
           <View style={tw`my-5`}>
-            <TextXLBolded text="Buy A Home" />
+            <TextXLBolded text={heading} />
           </View>
         )}
         {description && (
           <View style={tw`mb-5`}>
-            <TextSm
-              align="center"
-              text="Over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home."
-            />
+            <TextSm align="center" text={description} />
           </View>
         )}
         <View style={tw`mb-5 w-46`}>
@@ -91,7 +103,7 @@ const IconnedCard = ({
             iconPosition="right"
             text={buttonText}
             initialColor="red"
-            onPress={() => navigation.navigate(navigateTo)}
+            onPress={() => onPressButton()}
           />
         </View>
         <View style={tw`border-b-4 ${borderWidth} border-red-500`} />

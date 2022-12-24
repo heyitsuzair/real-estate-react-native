@@ -1,7 +1,7 @@
 import {View} from 'react-native';
 import React from 'react';
 import tw from 'twrnc';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 interface PropTypes {
   icon: string;
