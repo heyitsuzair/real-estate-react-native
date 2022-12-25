@@ -21,16 +21,16 @@ const Tabs = ({tabs, activeTab, setActiveTab}: PropTypes) => {
     <ScrollView
       horizontal={true}
       showsHorizontalScrollIndicator={false}
-      style={tw`bg-gray-100 rounded-lg p-1.3`}>
+      style={tw`bg-gray-100 rounded-lg p-1`}>
       {tabs.map((tab: string, index: number) => {
         const isActive = activeTab === index ? 'bg-white' : '';
-        const isSingle = tabs.length === 1 ? 'w-84.5 px-0' : '';
+        const isSingle = tabs.length === 1 ? 'w-84 px-0' : 'w-60';
         const isLast = tabs.length - 1 === index ? 'mr-2' : '';
         return (
           <Pressable
             key={index}
             onPress={() => onPressTab(index)}
-            style={tw`rounded-lg px-20 ${isSingle} ${isActive} ${isLast} py-2`}>
+            style={tw`rounded-lg ${isSingle} ${isActive} ${isLast} py-1.5`}>
             <Text
               adjustsFontSizeToFit
               style={[tw`text-center text-base`, styles.title]}>

@@ -80,7 +80,7 @@ const AddReviewForm = ({property_id, setIsCommentAdded}: PropTypes) => {
           style={[tw`text-base mt-1 text-black`, styles.poppinsMedium]}>
           Your Ratings:
         </Text>
-        <View style={tw`mt-1 mx-4`}>
+        <View style={tw`mt-1`}>
           <StarRatings
             rating={values.stars}
             onChange={(stars: number) => onStarChange(stars)}

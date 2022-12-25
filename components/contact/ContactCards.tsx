@@ -10,7 +10,7 @@ const ContactCards = () => {
   return (
     <>
       <View
-        style={tw`border-gray-200 border flex flex-col items-center mt-10 mb-7 px-20 py-10`}>
+        style={tw`border-gray-200 border flex flex-col items-center mt-10 mb-7 w-85 py-10`}>
         <Image source={image_1} resizeMode="cover" />
         <Text
           adjustsFontSizeToFit
@@ -32,7 +32,7 @@ const ContactCards = () => {
         />
       </View>
       <View
-        style={tw`border-gray-200 border flex flex-col items-center mt-3 mb-6 px-23 py-10`}>
+        style={tw`border-gray-200 border flex flex-col items-center mt-3 mb-6 w-85 py-10`}>
         <Image source={image_2} resizeMode="cover" />
         <Text
           adjustsFontSizeToFit
@@ -54,7 +54,7 @@ const ContactCards = () => {
         />
       </View>
       <View
-        style={tw`border-gray-200 border flex flex-col items-center mt-3 mb-6 px-23 py-10`}>
+        style={tw`border-gray-200 border flex flex-col items-center mt-3 mb-6 w-85 py-10`}>
         <Image source={image_3} resizeMode="cover" />
         <Text
           adjustsFontSizeToFit

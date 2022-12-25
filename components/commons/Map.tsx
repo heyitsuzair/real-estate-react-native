@@ -1,11 +1,11 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import MapView, {Marker} from 'react-native-maps';
+import tw from 'twrnc';
 
 const styles = StyleSheet.create({
   map: {
     height: 400,
-    width: 370,
   },
 });
 
@@ -20,7 +20,7 @@ const Map = ({lat, lng, title, description}: PropTypes) => {
   return (
     <View>
       <MapView
-        style={styles.map}
+        style={[styles.map, tw`w-85`]}
         zoomEnabled
         region={{
           latitude: lat,
