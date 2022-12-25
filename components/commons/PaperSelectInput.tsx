@@ -24,7 +24,6 @@ const PaperSelectInput = ({
       <View style={tw`border border-gray-200 rounded-lg`}>
         <Picker
           selectedValue={value}
-          style={tw`w-80`}
           onValueChange={itemValue => onSelect(itemValue)}>
           {list.map(item => {
             return (
