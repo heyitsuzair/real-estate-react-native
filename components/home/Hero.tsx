@@ -15,7 +15,7 @@ const Hero = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={tw`relative`}>
+    <View style={tw`relative items-center`}>
       <Slick
         style={tw`bg-slate-200 h-120`}
         showsPagination={false}
@@ -122,7 +122,7 @@ const Hero = () => {
         </View>
       </Slick>
       <View
-        style={tw`top-100 bg-white w-95 mx-auto left-4 right-0 absolute p-5 rounded-lg shadow-2xl shadow-slate-300 z-10`}>
+        style={tw`top-105 bg-white w-95 absolute p-5 rounded-lg shadow-2xl shadow-slate-300 z-10`}>
         <FindNowContainer />
       </View>
     </View>

@@ -72,7 +72,7 @@ const AddReviewForm = ({property_id, setIsCommentAdded}: PropTypes) => {
   };
 
   return (
-    <View style={tw`bg-slate-100 rounded-md p-7`}>
+    <View style={tw`bg-slate-100 rounded-md py-7 px-5`}>
       <TextMedium text="Add A Review" />
       <View style={tw`flex flex-row items-center mt-5 mb-2.5`}>
         <Text
@@ -80,7 +80,7 @@ const AddReviewForm = ({property_id, setIsCommentAdded}: PropTypes) => {
           style={[tw`text-base mt-1 text-black`, styles.poppinsMedium]}>
           Your Ratings:
         </Text>
-        <View style={tw`mt-1`}>
+        <View style={tw`mt-1 mx-1`}>
           <StarRatings
             rating={values.stars}
             onChange={(stars: number) => onStarChange(stars)}
