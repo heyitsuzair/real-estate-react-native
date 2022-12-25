@@ -9,6 +9,7 @@ import CountersSection from '../components/home/CountersSection';
 import {IOScrollView} from 'react-native-intersection-observer';
 import OurServices from '../components/home/OurServices';
 import FeaturedListings from '../components/home/FeaturedListings';
+import OurAmenities from '../components/home/OurAmenities';
 
 const HomeScreen = () => {
   return (
@@ -18,6 +19,7 @@ const HomeScreen = () => {
       <CountersSection />
       <OurServices />
       <FeaturedListings />
+      <OurAmenities />
       <View style={tw`mt-100`}>
         <PreFooter />
         <Footer />

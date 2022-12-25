@@ -81,7 +81,7 @@ const IconnedCard = ({
 
   return (
     <Pressable onPress={() => onPressCard()}>
-      <View style={tw`shadow-xl px-8 w-70 bg-white items-center`}>
+      <View style={tw`shadow-xl px-8 w-80 bg-white items-center`}>
         {icon && (
           <View style={tw`mt-5`}>
             <IconCircled icon={icon} />

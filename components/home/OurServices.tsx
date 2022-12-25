@@ -14,7 +14,7 @@ const OurServices = () => {
 
   const {value, reset} = useCountUp({
     isCounting,
-    end: 70,
+    end: 80,
     duration: 1.5,
   });
 
