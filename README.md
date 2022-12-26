@@ -1,0 +1,1 @@
+This project is developed by Muhammad Uzair Using React Native,MongoDB,Express Js And Node js.Basically It is a mobile app of web app https://real-estate-menn-uzair.vercel.app .Its Final Release Is Availbale At https://drive.google.com/file/d/1zRIvaqg9_WheO0L2Evtp1pbvsRisp4Ft/view?usp=sharing Made With ❤️ By Uzair
