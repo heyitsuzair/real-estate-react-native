@@ -18,7 +18,7 @@ const PreFooter = () => {
   };
 
   return (
-    <View style={tw`bg-slate-800 mt-20`}>
+    <View style={tw`bg-slate-800`}>
       <View style={tw`bg-red-500 rounded w-4/5 relative bottom-20 mx-auto p-6`}>
         <Text style={[tw`text-lg text-white text-center`, styles.heading]}>
           Looking For A Dream House?

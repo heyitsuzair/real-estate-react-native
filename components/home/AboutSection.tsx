@@ -15,7 +15,7 @@ const AboutSection = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={tw`mt-27 px-7 py-4 items-start bg-white`}>
+    <View style={tw`pt-40 px-7 pb-4 items-start bg-white`}>
       <Image resizeMode="contain" style={tw`w-full`} source={image} />
       <View style={tw`ml-4 -mt-28 items-start`}>
         <Badge text="About Us" />
@@ -26,7 +26,10 @@ const AboutSection = () => {
           />
         </View>
         <View style={tw`mb-6`}>
-          <TextSm text="Over 39,000 people work for us in more than 70 countries all over the This breadth of global coverage, combined with specialist services" />
+          <TextSm
+            align="left"
+            text="Over 39,000 people work for us in more than 70 countries all over the This breadth of global coverage, combined with specialist services"
+          />
         </View>
         <View>
           <View style={tw`my-3`}>

@@ -16,7 +16,7 @@ const ContactScreen = () => {
 
       <View style={tw`bg-white flex flex-col items-center justify-center`}>
         <ContactCards />
-        <View style={tw`mb-10`}>
+        <View style={tw`mb-40 w-85`}>
           <Map
             lat={31.5204}
             lng={74.3587}

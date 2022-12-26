@@ -6,6 +6,7 @@ import IconCircled from './IconCircled';
 import TextSm from './TextSm';
 import {useNavigation} from '@react-navigation/native';
 import ButtonTextIconRounded from './ButtonTextIconRounded';
+import {ReturnValue} from 'use-count-up';
 
 interface PropTypes {
   index: number;
@@ -17,7 +18,7 @@ interface PropTypes {
   buttonText: string;
   buttonIcon: string | undefined;
   navigateTo: string | undefined;
-  width: string;
+  width: ReturnValue;
   setIsCounting: Dispatch<SetStateAction<boolean>>;
   reset: () => void;
   navigationType: 'link' | 'screen';

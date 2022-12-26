@@ -1,4 +1,3 @@
-import {View} from 'react-native';
 import React from 'react';
 import PreFooter from '../components/commons/PreFooter';
 import Footer from '../components/commons/Footer';
@@ -10,6 +9,7 @@ import {IOScrollView} from 'react-native-intersection-observer';
 import OurServices from '../components/home/OurServices';
 import FeaturedListings from '../components/home/FeaturedListings';
 import OurAmenities from '../components/home/OurAmenities';
+import OurTestimonial from '../components/home/OurTestimonial';
 
 const HomeScreen = () => {
   return (
@@ -20,10 +20,9 @@ const HomeScreen = () => {
       <OurServices />
       <FeaturedListings />
       <OurAmenities />
-      <View style={tw`mt-100`}>
-        <PreFooter />
-        <Footer />
-      </View>
+      <OurTestimonial />
+      <PreFooter />
+      <Footer />
     </IOScrollView>
   );
 };

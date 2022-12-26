@@ -12,6 +12,9 @@ const OurServices = () => {
 
   const [isCounting, setIsCounting] = useState<boolean>(false);
 
+  /**
+   * Using Count Up For Line Animation Under Card
+   */
   const {value, reset} = useCountUp({
     isCounting,
     end: 80,

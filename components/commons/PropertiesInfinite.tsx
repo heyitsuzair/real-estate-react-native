@@ -37,7 +37,7 @@ const PropertiesInfinite = ({fetchNextData, properties, breadcrumb}: any) => {
           properties.docs.length > 0 && (
             <>
               <View
-                style={tw`flex flex-row justify-center mt-2 mb-12 items-center`}>
+                style={tw`flex flex-row justify-center mt-2 mb-30 items-center`}>
                 <View
                   style={tw`mx-2 -ml-2 border-2 border-red-500 p-2 rounded-full`}>
                   <Icon name="check" color="red" size={25} />

@@ -14,7 +14,7 @@ const OurAmenities = () => {
     <View style={tw`bg-white py-20 px-5 items-center`}>
       <Badge text="Our Services" />
       <View style={tw`my-8`}>
-        <TextSemiLarge align="center" text="Our Amenities" />
+        <TextSemiLarge align="center" text="Building Aminities" />
       </View>
       <View>
         {OurAminitesCard.map((amenity, index: number) => {

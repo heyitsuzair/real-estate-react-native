@@ -198,7 +198,7 @@ const PropertyScreen = ({route}: any) => {
               reviews={property.property.property_total_reviews}
             />
             <Comments comments={property.reviews} />
-            <View style={tw`mt-10`}>
+            <View style={tw`mt-10 mb-25`}>
               <AddReviewForm
                 property_id={property.property._id}
                 setIsCommentAdded={setIsCommentAdded}
